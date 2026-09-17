@@ -90,10 +90,13 @@ def my_avg(grade):
             g_sum += i
         g_avg = g_sum/g_len
         return(g_avg)'''
-final_max,final_min,final_avg = my_cal(lst)
-if not final_avg:
+if not lst:
     print("没有数据哦")
 else:
-    print("最大值",final_max)
-    print("最小值",final_min)
-    print("平均数",final_avg)
+    final_max,final_min,final_avg = my_cal(lst)
+    if not final_avg:
+     print("没有数据哦")
+    else:
+        print("最大值",final_max)
+        print("最小值",final_min)
+        print("平均数",final_avg)
