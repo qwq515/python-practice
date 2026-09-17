@@ -1,14 +1,22 @@
 balance = 1000
-#def valueerror(mon)
+def check_money(mon):
+    try:
+        mon = int(mon)
+        if mon > 0:
+            return mon
+        #return None
+    except:
+        return None
+        
 
-def deposit(deposit,balance):
-    rest = deposit+balance
+def deposit(balance,deposit):
+    rest = balance + deposit
     return(rest)
-def withdraw(withdraw,balance):
+def withdraw(balance,withdraw):
         rest = balance - withdraw
         return(rest)
-def show_balance(mon):
-    return(mon)
+#def show_balance(mon):
+    #return(mon)
 
 while True:
     order = input("请输入指令：")
@@ -17,35 +25,26 @@ while True:
         break
     elif order == "d":
         dep = input("存入金额：")
-        try:
-            dep = int(dep)
-            if dep <= 0:
-                print("无效存款")
-            else:
-                balance = deposit(balance,dep)
-                print("存款成功")
-                continue
-        except ValueError:
-            print("无效输入")
+        dep = check_money(dep)
+        if dep == None:
+            print("无效存款")
+        else:
+            balance = deposit(balance,dep)
+            print("存款成功")
             continue
     elif order == "w":
         wid = input("取款金额：")
-        try:
-            wid = int(wid)
-            if wid <= 0:
-                print("无效输入")
-            else:
-                if wid > balance:
-                    print("取款金额不能大于存款金额")
-                    continue
-                else:
-                    balance = withdraw(wid,balance)
-                    print("取款成功")
-                continue
-        except ValueError:
+        wid = check_money(wid)
+        if wid == None:
             print("无效输入")
-            continue
+        else:
+            if wid > balance:
+                print("取款金额不能大于存款金额")
+                continue
+            else:
+                balance = withdraw(balance,wid)
+                print("取款成功")
+                continue
     elif order == "s":
-        sh = show_balance(balance)
-        print("当前金额：",sh)
+        print("当前金额：",balance)
         continue
