@@ -5,7 +5,7 @@ def check_money(mon):
         if mon > 0:
             return mon
         #return None
-    except:
+    except ValueError:
         return None
         
 
@@ -26,7 +26,7 @@ while True:
     elif order == "d":
         dep = input("存入金额：")
         dep = check_money(dep)
-        if dep == None:
+        if dep is None:
             print("无效存款")
         else:
             balance = deposit(balance,dep)
@@ -35,7 +35,7 @@ while True:
     elif order == "w":
         wid = input("取款金额：")
         wid = check_money(wid)
-        if wid == None:
+        if wid is None:
             print("无效输入")
         else:
             if wid > balance:
