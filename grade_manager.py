@@ -94,9 +94,6 @@ if not lst:
     print("没有数据哦")
 else:
     final_max,final_min,final_avg = my_cal(lst)
-    if not final_avg:
-     print("没有数据哦")
-    else:
-        print("最大值",final_max)
-        print("最小值",final_min)
-        print("平均数",final_avg)
+    print("最大值",final_max)
+    print("最小值",final_min)
+    print("平均数",final_avg)
