@@ -3,8 +3,11 @@ lst = []
 inf = {"name":"","age":0.0,"grade":0.0}
 
 def check(value,add):
-    if isinstance(add, type(value)):
-        return add
+    try:
+        add = value(add)
+        return(add)
+    except ValueError:
+        
     #else :
         #print("格式错误:")
 #value = inf("name")
