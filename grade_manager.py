@@ -40,7 +40,7 @@ def my_cal(grade):
             g_sum += i
             if i > g_max:
                 g_max = i
-            else:
+            elif i < g_min:
                 g_min = i
     g_avg = g_sum/g_len
     return(g_max,g_min,g_avg)
