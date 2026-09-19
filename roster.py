@@ -8,29 +8,15 @@ def check(value,add):
     except ValueError:
         return(None)
 
-def check_age():
+def check_age_grade(var,type,num_min,num_max):
     while True:
-        age_add = input("Please enter age:")
-        age_add = check(int, age_add)
-        if not age_add:
+        add = input("Please enter "+var+":")       #input can only except 1 argument,use + to splice
+        add = check(type, add)
+        if not add:
             print("Incorrect input")
             continue
-        elif 0 <= age_add <= 100:
-            return(age_add)
-            break
-        else:
-            print("Incorrect number")
-            continue
-def check_grade():
-    while True:
-        grade_add = input("Please enter grade:")
-        grade_add = check(float, grade_add)
-        if not grade_add:
-            print("Incorrect input")
-            continue
-        elif 0 < grade_add < 100:
-            return(grade_add)
-            break
+        elif num_min <= add <= num_max:
+            return(add)
         else:
             print("Incorrect number")
             continue
@@ -51,33 +37,10 @@ while True:
         name_add = input("请输入姓名:")
         inf["name"] = name_add
         
-        '''while True:
-            age_add = input("请输入年龄:")
-            age_add = check(int, age_add)
-            if age_add is None:
-                print("年龄格式错误")
-                continue       
-            elif  0 < age_add < 100:   
-                inf["age"] = age_add
-                break
-            else:
-                print("无效年龄")   #一样，不知道怎么重新输入年龄
-                continue
-        
-        while True:
-            grade_add = input("请输入成绩:")
-            grade_add = check(float,grade_add)
-            if grade_add is None:
-                print("成绩格式错误")
-                continue
-            elif 0 <= grade_add <= 100:     #python支持连续比较
-                inf["grade"] = grade_add  
-                break          
-            else:
-                print("无效成绩")
-                continue'''
-        inf["age"] = check_age()
-        inf["grade"] = check_grade()   
+        var_age = "age"
+        var_grade = "grade"
+        inf["age"] = check_age_grade(var_age,int,1,99)
+        inf["grade"] = check_age_grade(var_grade,float,0,100)   
         lst.append(inf)
         continue        
     elif order == "show":
