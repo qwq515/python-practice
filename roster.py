@@ -104,9 +104,9 @@ while True:
             if re_name == stu["name"]:
                 found = stu
                 stu["name"] = input("new name:")
-                print("the original age was:")
+                print("the original age was:",stu["age"])
                 stu["age"] = check_age_grade("age",int,0,100,False,False)
-                print("the original grade was:")
+                print("the original grade was:",stu["grade"])
                 stu["grade"] = check_age_grade("grade",float,0,100,True,True) 
                 save_data(lst)
         if found is None:
