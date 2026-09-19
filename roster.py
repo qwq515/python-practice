@@ -1,5 +1,8 @@
 #困困困
-lst = []
+import json
+with open("roster_student.json","r",encoding="utf-8")as f:
+    lst = json.load(f)
+
 
 def check(value,add):
     try:
@@ -29,8 +32,11 @@ while True:
                 student["name"],
                 student["age"],"岁",
                 student["grade"],"分"
-            )                
+            )   
+        with open("roster_student.json","w",encoding="utf_8")as f:
+            json.dump(lst, f,ensure_ascii=False,indent=2)             
         break
+
     elif order =="add":
         inf = {"name":"","age":0,"grade":0.0}
         
