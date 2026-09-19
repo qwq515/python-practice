@@ -8,14 +8,14 @@ def check(value,add):
     except ValueError:
         return(None)
 
-def check_age_grade(var,data_type,num_min,num_max,leftEqual,rightEqual):
+def check_age_grade(var,data_type,num_min,num_max,left_equal,right_equal):
     while True:
         add = input("Please enter "+var+":")       #input can only except 1 argument,use + to splice
-        add = check(type, add)
+        add = check(data_type, add)
         if add is None:
             print("Incorrect input")
             continue
-        elif (num_min <= add if leftEqual else num_min < add)and(add <= num_max if rightEqual else add < num_max):
+        elif (num_min <= add if left_equal else num_min < add)and(add <= num_max if right_equal else add < num_max):
             return(add)
         else:
             print("Incorrect number")
@@ -40,7 +40,7 @@ while True:
         #var_age = "age"
         #var_grade = "grade"
         inf["age"] = check_age_grade("age",int,0,100,False,False)
-        inf["grade"] = check_age_grade("age",float,0,100,True,True)   
+        inf["grade"] = check_age_grade("grade",float,0,100,True,True)   
         lst.append(inf)
         continue        
     elif order == "show":
