@@ -1,7 +1,19 @@
 #困困困
 import json
-with open("roster_student.json","r",encoding="utf-8")as f:
-    lst = json.load(f)
+def save_data(lst):
+    with open("roster_student.json","w",encoding="utf-8")as f:
+        json.dump(lst, f,ensure_ascii=False,indent=2)
+
+try:
+    with open("roster_student.json","r",encoding="utf-8")as f:
+        lst = json.load(f)
+except FileNotFoundError:
+    lst = []
+    save_data(lst)
+except json.JSONDecodeError:
+    print("The JSON file is corrupted;please check the file")
+    exit()
+
 
 
 def check(value,add):
@@ -33,8 +45,7 @@ while True:
                 student["age"],"岁",
                 student["grade"],"分"
             )   
-        with open("roster_student.json","w",encoding="utf_8")as f:
-            json.dump(lst, f,ensure_ascii=False,indent=2)             
+        save_data(lst)          
         break
 
     elif order =="add":
@@ -48,6 +59,7 @@ while True:
         inf["age"] = check_age_grade("age",int,0,100,False,False)
         inf["grade"] = check_age_grade("grade",float,0,100,True,True)   
         lst.append(inf)
+        save_data(lst)
         continue        
     elif order == "show":
         for student in lst:
@@ -76,6 +88,7 @@ while True:
                 found = dic
                 lst.remove(dic)
                 print("已删除")
+                save_data(lst)
                 break
         if not found:
             print("找不到")
