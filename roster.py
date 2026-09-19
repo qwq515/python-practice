@@ -45,8 +45,7 @@ def add_student(lst):
     inf["age"] = check_age_grade("age",int,0,100,False,False)
     inf["grade"] = check_age_grade("grade",float,0,100,True,True)   
     lst.append(inf)
-    save_data(lst)        
-    return(lst)
+    save_data(lst)        #mutable and immutable
 
 lst = load_data()
 
@@ -64,7 +63,7 @@ while True:
         break
 
     elif order =="add":
-        lst = add_student(lst)
+        add_student(lst)
         continue
 
     elif order == "show":
@@ -100,15 +99,13 @@ while True:
             print("找不到")
     elif order == "update":
         re_name = input("enter name")
-        for stu in lst:
-            found = None
+        found = None
+        for stu in lst:  
             if re_name == stu["name"]:
                 found = stu
                 stu["name"] = input("new name:")
-                stu["age"] = input("new age")
-                stu["grade"] = input("new grade")
+                inf["age"] = check_age_grade("age",int,0,100,False,False)
+                inf["grade"] = check_age_grade("grade",float,0,100,True,True) 
                 save_data(lst)
         if found is None:
                 print("404 not find")
-
-    
