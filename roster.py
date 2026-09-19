@@ -104,8 +104,14 @@ while True:
             if re_name == stu["name"]:
                 found = stu
                 stu["name"] = input("new name:")
-                inf["age"] = check_age_grade("age",int,0,100,False,False)
-                inf["grade"] = check_age_grade("grade",float,0,100,True,True) 
+                print("the original age was:")
+                stu["age"] = check_age_grade("age",int,0,100,False,False)
+                print("the original grade was:")
+                stu["grade"] = check_age_grade("grade",float,0,100,True,True) 
                 save_data(lst)
         if found is None:
                 print("404 not find")
+
+#finished 2026-09-19 
+#The pass is never dead,it's not even past.
+#The future lies within the past,and the past lies within the future
