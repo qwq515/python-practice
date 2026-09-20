@@ -1,5 +1,6 @@
+import string
 text = input("please enter your text:")
-word_split =text.split() #word_split is a list,however, it cannot identify symnols
+word_split =text.split() #word_split is a list,however, it cannot handle symnols
 
 def times_max(lst):
     t_max = 0
