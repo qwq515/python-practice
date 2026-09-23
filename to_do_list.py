@@ -14,12 +14,17 @@ def done(todo_lst):
         print("cannot find this item")
     while True:
         del_num = input("please enter your goal number:")
+        del_num = int(del_num)
+        found2 = None
         for num,things in todo_lst.items():
-            if del_num == num and found_item == things:
+            if del_num == num and found_item == things["items"]:
                 todo_lst[num]["completed"] = True
-
-                break
-        break
+                found2 = 1
+        if found2 is None:
+            print("wrong")
+            continue
+        elif found2 == 1:
+            break
         
 
             
