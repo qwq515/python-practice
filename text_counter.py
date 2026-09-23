@@ -36,12 +36,13 @@ def times_max(lst):
 lst = []
 num = 0
 not_num = 0
-lst,t_len = text.pretreatment(text)
+lst,t_len = pretreatment(text)
 num = len(text)
+jev = []
 
-for word in word_split:
+for word in lst:
     found = None
-    for dic in lst:
+    for dic in jev:
         if word == dic["word"]:
             dic["count"] += 1
             found = word
@@ -50,7 +51,7 @@ for word in word_split:
         count_dic = {"word":word,"count":1}
         lst.append(count_dic)
         not_num += 1
-max_word =times_max(lst)
+max_word =times_max(jev)
 if max_word is None:
     print("please enter the words")
     
@@ -59,3 +60,4 @@ else:
     print("word count",num)
     print("unique word count:",not_num)
     print("the most frequently mentioned word:",max_word)
+#unfinished
