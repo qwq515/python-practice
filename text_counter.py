@@ -1,20 +1,26 @@
 import string
 
 text = input("please enter your text:")
-word_split =text.split() #word_split is a list,however, it cannot handle symnols
+#word_split =text.split() #word_split is a list,however, it cannot handle symnols
 
 def pretreatment(sen):
     lst = []
+    num = 0
     word = ""
     for char in sen:
-        if char != " "
-            word += char
-        elif char == " "
-            lst.append(word)
-            word = " "
+        if char not in string.punctuation:
+            if char != " ":
+                num += 1
+                word += char
+            elif char == " ":
+                lst.append(word)
+                word = ""
+        else:
+            continue
     if word != "":
         lst.append(word)
-    return(lst)
+    return(lst,num)
+
 def times_max(lst):
     t_max = 0
     if not lst:
@@ -26,18 +32,14 @@ def times_max(lst):
                 max_data = data
         return(max_data)
 
-def cl_word(lst):
-    for word in lst:
-        for char in word:
-            if char not in
 
 lst = []
 num = 0
 not_num = 0
-text = text.replace(" ", "")
-t_len = len(text)
+lst,t_len = text.pretreatment(text)
+num = len(text)
+
 for word in word_split:
-    num += 1
     found = None
     for dic in lst:
         if word == dic["word"]:
