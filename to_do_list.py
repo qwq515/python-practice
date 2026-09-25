@@ -17,13 +17,18 @@ def done(todo_lst):
         del_num = input("please enter your goal number:")
         try:
             del_num = int(del_num)
-            break
+            if del_num not in todo_lst:
+                print("wrong inter")
+                continue
+        
+            if todo_lst[del_num]["items"] == found_item:
+                todo_lst[del_num]["completed"] = True
+                return
+            else:
+                print("wrong")
+                continue
         except ValueError:
             print("wrong input")
-    if todo_lst[del_num]["items"] == found_item:
-        todo_lst[del_num]["completed"] = True
-    else:
-        print("wrong")
             
 
 def show(todo_lst):
