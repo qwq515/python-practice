@@ -16,9 +16,9 @@ while True:
         todo_dic[num]["finish time"] = input("finish time:")
         lst.update(todo_dic)
     elif order == "show":
-        show(lst)
+        todo_utils.show(lst)
     elif order == "done":
-        done(lst)
+        todo_utils.done(lst)
     elif order == "quit":
         break
     else:
