@@ -1,23 +1,17 @@
-import string
+sentence = input("please enter your characters:")
 
-def clean(sen):
-    result = []
-    word = ""
-    for char in sen:
-        if char not in string.punctuation:
-            if char != " ":
-                word += char
-            elif char == " ":
-                result.append(word)
-                word = ""
-        else:
-            continue
-    if word != "":
-        result.append(word)
-    return result
-sentence = input("please enter your characters")
-result = clean(sentence)
+result =sentence.split()    #lst
 #breakpoint()
-result_cl = set(result)
-#breakpoint()
-print(result_cl)
+#result_cl = set(result)     dic
+
+result_non = []
+result_dup = []
+for word in result:
+    if word not in result_non:
+        result_non.append(word)
+    else:
+        result_dup.append(word)
+
+print("origin quantity:",len(result))
+print("non-duplicate quantity:",len(set(result)))
+print("duplicate quantity",set(result_dup))
