@@ -1,7 +1,7 @@
 sentence = input("please enter your characters:")
 
 result =sentence.split()    #lst
-#breakpoint()
+'''#breakpoint()
 #result_cl = set(result)     dic
 
 result_non = []
@@ -14,4 +14,15 @@ for word in result:
 
 print("origin quantity:",len(result))
 print("non-duplicate quantity:",len(set(result)))
-print("duplicate quantity",set(result_dup))
+print("duplicate words:",set(result_dup))'''
+
+result_try = {}
+for word in result:
+    if not result_try:
+        result_try[word] = 1
+        continue
+    if word not in result_try:
+        result_try[word] = 1
+    else:
+        result_try[word] += 1
+print(result_try)
