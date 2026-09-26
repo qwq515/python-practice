@@ -18,11 +18,18 @@ print("duplicate words:",set(result_dup))'''
 
 result_try = {}
 for word in result:
-    if not result_try:
-        result_try[word] = 1
-        continue
     if word not in result_try:
         result_try[word] = 1
     else:
         result_try[word] += 1
-print(result_try)
+
+dup_word = []
+for word in result_try:
+    if result_try[word] != 1:
+        dup_word.append(word)
+
+
+
+print("origin quantity:",sum(result_try.values()))
+print("unique quantity:",len(result_try))
+print("duplicate words:",*dup_word)
