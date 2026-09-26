@@ -17,7 +17,7 @@ def clean(sen):
     return result
 sentence = input("please enter your characters")
 result = clean(sentence)
-breakpoint()
+#breakpoint()
 result_cl = set(result)
-breakpoint()
+#breakpoint()
 print(result_cl)
